@@ -14,6 +14,8 @@ int red = D0; // Our hot LED
 void setup() {
   Spark.function("tempC", getTempC);
   Spark.function("tempF", getTempF);
+  Spark.function("flashRed", flashRed);
+  Spark.function("flashBlue", flashBlue);
 
   pinMode(spark, OUTPUT);
   pinMode(blue, OUTPUT);
@@ -73,4 +75,28 @@ int getTempC(String command) {
 
 int getTempF(String command) {
     return ((getTemp() * 9.0) / 5.0 + 32.0)*100;
+}
+
+int flashRed(String command) {
+  digitalWrite(red, LOW);
+  delay(300);
+  digitalWrite(red, HIGH);
+  delay(300);
+  digitalWrite(red, LOW);
+  delay(300);
+  digitalWrite(red, HIGH);
+  delay(300);
+  digitalWrite(red, LOW);
+}
+
+int flashBlue(String command) {
+  digitalWrite(blue, LOW);
+  delay(300);
+  digitalWrite(blue, HIGH);
+  delay(300);
+  digitalWrite(blue, LOW);
+  delay(300);
+  digitalWrite(blue, HIGH);
+  delay(300);
+  digitalWrite(blue, LOW);
 }
