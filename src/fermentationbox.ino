@@ -15,8 +15,9 @@ void setup() {
   Spark.function("tempC", getTempC);
   Spark.function("tempF", getTempF);
 
-  pinMode(D3, OUTPUT);
-  pinMode(D0, OUTPUT);
+  pinMode(spark, OUTPUT);
+  pinMode(blue, OUTPUT);
+  pinMode(red, OUTPUT);
 }
 
 void loop() {
