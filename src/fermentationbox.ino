@@ -14,8 +14,7 @@ int switchTemp = 66;
 
 void setup() {
   Spark.function("tempF", getTempF);
-  Spark.function("flashRed", flashRed);
-  Spark.function("flashBlue", flashBlue);
+  Spark.function("flashLED", flashLED);
   Spark.function("switchTemp", setSwitchTemp);
 
   pinMode(spark, OUTPUT);
@@ -79,7 +78,19 @@ int setSwitchTemp(String temp) {
   return switchTemp;
 }
 
-int flashRed(String command) {
+int flashLED(String command) {
+  if ( "red" == command ) {
+    flashRed();
+  }
+
+  if ( "blue" == command ) {
+    flashBlue();
+  }
+
+  return 1;
+}
+
+int flashRed() {
   digitalWrite(red, LOW);
   delay(300);
   digitalWrite(red, HIGH);
