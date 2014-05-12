@@ -13,7 +13,6 @@ int red = D0; // Our hot LED
 int switchTemp = 66;
 
 void setup() {
-  Spark.function("tempC", getTempC);
   Spark.function("tempF", getTempF);
   Spark.function("flashRed", flashRed);
   Spark.function("flashBlue", flashBlue);
@@ -69,10 +68,6 @@ float getTemp() {
     float tempRead = ((MSB << 8) | LSB); //using two's compliment
     float TemperatureSum = tempRead / 16;
     return TemperatureSum;
-}
-
-int getTempC(String command) {
-    return getTemp()*100;
 }
 
 int getTempF(String command) {
