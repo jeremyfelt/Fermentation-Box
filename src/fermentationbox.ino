@@ -79,11 +79,11 @@ int setSwitchTemp(String temp) {
 }
 
 int flashLED(String command) {
-  if ( "red" == command ) {
+  if ( strcmp("red", command.c_str()) == 0 ) {
     flashRed();
   }
 
-  if ( "blue" == command ) {
+  if ( strcmp("blue", command.c_str()) == 0 ) {
     flashBlue();
   }
 
@@ -103,7 +103,7 @@ int flashRed() {
   return 0;
 }
 
-int flashBlue(String command) {
+int flashBlue() {
   digitalWrite(blue, LOW);
   delay(300);
   digitalWrite(blue, HIGH);
